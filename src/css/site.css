@@ -1,0 +1,90 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.clip {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.muted {
+  white-space: nowrap;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.results {
+  display: none;
+}
+
+.result-pass,
+.result-fail,
+.result-error {
+  color: white;
+}
+
+.result-pass { background: #468847; }
+.result-fail { background: #b94a48; }
+.result-error { background: #333333; }
+
+.fa {
+  font-size: 20px;
+}
+
+.fa-check-circle { color: #468847; }
+.fa.danger,
+.fa-exclamation-circle { color: #b94a48; }
+
+.fontelico-chrome { color: #f7c93e; }
+.fontelico-firefox { color: #ff661a; }
+.fontelico-ie { color: #00abf0; }
+.fontelico-opera { color: #e52e2e; }
+.fa-compass {
+  font-size: 16px;
+  color: #3674b3;
+}
+
+.fa-apple,
+.fa-windows {
+  font-size: 16px;
+}
+
+.log {
+  font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+}
+
+.it-is-known li {
+  line-height: 2;
+}
+
+.it-is-known li b {
+  display: inline-block;
+  width: 50px;
+}
+
+.it-is-known th,
+.it-is-known td {
+  text-align: center;
+}
+
+.it-is-known th:nth-child(1),
+.it-is-known td:nth-child(1),
+.it-is-known th:nth-child(2),
+.it-is-known td:nth-child(2),
+.it-is-known th:nth-child(3),
+.it-is-known td:nth-child(3),
+.it-is-known th:last-child,
+.it-is-known td:last-child {
+  text-align: left;
+}
+
+.it-is-known tbody tr:first-child td,
+.it-is-known thead th {
+  border-top-width: 5px;
+}
+
+.it-is-known thead:first-child th {
+  border-top-width: 1px;
+}

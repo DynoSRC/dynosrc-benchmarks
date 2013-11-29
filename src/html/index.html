@@ -1,0 +1,17 @@
+{% extends './base.html' %}
+
+{% block title %}DynoSRC Benchmarks{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>DynoSRC Benchmarks/Feature Tests</h1>
+
+    <hr>
+    <p class="lead">Test Navigation Timing events with and without DynoSRC.</p>
+    <p><a class="btn btn-large" href="/timings/traditional">Without DynoSRC</a></p>
+
+    <hr>
+    <p class="lead">Test localStorage support.</p>
+    <p><a class="btn btn-large" href="/localstorage">localStorage Test</a></p>
+  </div>
+{% endblock %}
