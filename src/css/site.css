@@ -69,10 +69,6 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
-.it-is-known th:nth-child(2),
-.it-is-known td:nth-child(2),
-.it-is-known th:nth-child(4),
-.it-is-known td:nth-child(4),
 .it-is-known th:last-child,
 .it-is-known td:last-child {
   text-align: left;
