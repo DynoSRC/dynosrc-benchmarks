@@ -26,6 +26,8 @@ app.use('/css', express.static(__dirname + '/src/css'));
 app.use('/js', express.static(__dirname + '/src/js'));
 app.use('/img', express.static(__dirname + '/src/img'));
 
+app.use(express.favicon(__dirname + '/src/img/favicon.png'));
+
 // Routes.
 
 app.get('/', getController('index'));
