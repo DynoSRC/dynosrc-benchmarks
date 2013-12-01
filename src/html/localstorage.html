@@ -140,11 +140,9 @@
     </div>
 
     <hr>
-    <h2>Things to Investigate</h2>
+    <h2>TODO</h2>
     <ul>
-      <li>Determine localStorage supported vs. disabled vs. private browsing vs. quota full.</li>
-      <li>What errors other than <code>QUOTA_EXCEEDED_ERR</code> can get thrown?</li>
-      <li>IE11, iOS, Android, Windows 8 Mobile.</li>
+      <li>IE11, Android, Windows 8 Mobile.</li>
       <li>Webviews on mobile.</li>
     </ul>
 
@@ -157,7 +155,9 @@
       <li>Both Safari and IE allow access when cookies are disabled.</li>
       <li>IE has separate settings for disabling cookies and DOM storage.</li>
       <li>IE8 throws a <code>TypeError</code> when calling <code>toString()</code>, but is fine if you cast to a string via <code>+ ''</code>.</li>
-      <li>The capacity test crashes Safari 6.1 on OS X 10.8. The result is reported but the browser becomes inresponsive.</li>
+      <li>The capacity test crashes Safari 6.1 on OS X 10.8. The result is reported but the browser becomes unresponsive.</li>
+      <li>Safari >= 6.1 on OS X and iOS blocks access both in private browsing mode and when cookies are disabled.</li>
+      <li>There is no way to block access on Chrome for iOS.</li>
     </ul>
 
     <hr>
