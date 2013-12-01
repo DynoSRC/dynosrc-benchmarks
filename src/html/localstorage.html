@@ -125,27 +125,29 @@
             {% set browser = result.browser %}
             {% set browser_version = result.browser_version %}
 
-            <tr class="{{ result.class_name }}">
-              <td>{{ result.browser | safe }}</td>
-              <td>{{ result.browser_version }}</td>
-              <td>{{ result.platform | safe }}</td>
-              <td>{{ result.platform_version }}</td>
-              <td>{{ result.private }}</td>
-              <td>{{ result.storage_disabled }}</td>
-              <td>{{ result.double_not }}</td>
-              <td>{{ result.typeof }}</td>
-              <td>{{ result.tostring }}</td>
-              <td>{{ result.in_window }}</td>
-              <td>{{ result.setitem }}</td>
-              <td>{{ result.getitem }}</td>
-              <td>{{ result.removeitem }}</td>
-              <td>{{ result.clear }}</td>
-              <td>{{ result.key }}</td>
-              <td>{{ result.length }}</td>
-              <td>{{ result.as_array }}</td>
-              <td>{{ result.as_object }}</td>
-              <td>{{ result.capacity }}</td>
-            </tr>
+            {% autoescape false %}
+              <tr class="{{ result.class_name }}">
+                <td>{{ result.browser }}</td>
+                <td>{{ result.browser_version }}</td>
+                <td>{{ result.platform }}</td>
+                <td>{{ result.platform_version }}</td>
+                <td>{{ result.private }}</td>
+                <td>{{ result.storage_disabled }}</td>
+                <td>{{ result.double_not }}</td>
+                <td>{{ result.typeof }}</td>
+                <td>{{ result.tostring }}</td>
+                <td>{{ result.in_window }}</td>
+                <td>{{ result.setitem }}</td>
+                <td>{{ result.getitem }}</td>
+                <td>{{ result.removeitem }}</td>
+                <td>{{ result.clear }}</td>
+                <td>{{ result.key }}</td>
+                <td>{{ result.length }}</td>
+                <td>{{ result.as_array }}</td>
+                <td>{{ result.as_object }}</td>
+                <td>{{ result.capacity }}</td>
+              </tr>
+            {% endautoescape %}
           {% endfor %}
         </tbody>
       </table>
@@ -156,7 +158,8 @@
     <ul>
       <li>Determine localStorage supported vs. disabled vs. private browsing vs. quota full.</li>
       <li>What errors other than <code>QUOTA_EXCEEDED_ERR</code> can get thrown?</li>
-      <li>IE11, iOS, Android, Windows 8 Mobile</li>
+      <li>IE11, iOS, Android, Windows 8 Mobile.</li>
+      <li>Webviews on mobile.</li>
     </ul>
 
     <hr>
@@ -168,7 +171,6 @@
       <li>So far, Safari is the only browser that blocks access when in private browsing mode.</li>
       <li>Both Safari and IE allow access when cookies are disabled.</li>
       <li>IE has separate settings for disabling cookies and DOM storage.</li>
-      <li><code>localStorage === null</code> in IE (8/9/10) when DOM storage is disabled.</li>
       <li>IE8 throws a <code>TypeError</code> when calling <code>toString()</code>, but is fine if you cast to a string via <code>+ ''</code>.</li>
     </ul>
 

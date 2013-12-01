@@ -1,4 +1,21 @@
-var results = require('../localstorage.json');
+var results = require('../localstorage.json'),
+
+    resultFields = [
+      'private',
+      'storage_disabled',
+      'double_not',
+      'typeof',
+      'tostring',
+      'in_window',
+      'setitem',
+      'getitem',
+      'removeitem',
+      'clear',
+      'key',
+      'length',
+      'as_array',
+      'as_object'
+    ];
 
 function getBrowserIcon (browser) {
   switch (browser) {
@@ -28,12 +45,33 @@ function getPlatformIcon (platform) {
   }
 }
 
+function getResultIcon (result) {
+  switch (result) {
+    case 'DANGER':
+      return '<i class="fa fa-ban danger"></i>';
+    case 'ERROR':
+      return '<i class="fa fa-exclamation-triangle"></i>';
+    case 'FAIL':
+      return '<i class="fa fa-exclamation-circle"></i>';
+    case 'PASS':
+      return '<i class="fa fa-check-circle"></i>';
+    case 'SAFE':
+      return '<i class="fa fa-eye muted"></i>';
+    default:
+      return result;
+  }
+}
+
 function transformResult (result) {
   // Use capacity as a proxy for "success" class.
   result.class_name = result.capacity == 'N/A' ? '' : 'success';
 
   result.browser = getBrowserIcon(result.browser);
   result.platform = getPlatformIcon(result.platform);
+
+  resultFields.forEach(function (field) {
+    result[field] = getResultIcon(result[field]);
+  });
 
   return result;
 }
