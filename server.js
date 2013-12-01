@@ -29,6 +29,7 @@ app.use('/img', express.static(__dirname + '/src/img'));
 // Routes.
 
 app.get('/', getController('index'));
+app.get('/localstorage', getController('localstorage'));
 
 // Run.
 
