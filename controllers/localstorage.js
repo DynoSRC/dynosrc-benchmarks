@@ -36,6 +36,8 @@ function getBrowserIcon (browser) {
 
 function getPlatformIcon (platform) {
   switch (platform) {
+    case 'iOS':
+      return '<i class="fa fa-apple"></i><i class="fa fa-mobile"></i>';
     case 'OS X':
       return '<i class="fa fa-apple"></i>';
     case 'Windows':
@@ -45,10 +47,12 @@ function getPlatformIcon (platform) {
   }
 }
 
-function getResultIcon (result) {
+function getResultIcon (result, field) {
   switch (result) {
     case 'DANGER':
-      return '<i class="fa fa-ban danger"></i>';
+      return field == 'private' ?
+          '<i class="fa fa-eye danger"></i>' :
+          '<i class="fa fa-ban danger"></i>';
     case 'ERROR':
       return '<i class="fa fa-exclamation-triangle"></i>';
     case 'FAIL':
@@ -70,7 +74,7 @@ function transformResult (result) {
   result.platform = getPlatformIcon(result.platform);
 
   resultFields.forEach(function (field) {
-    result[field] = getResultIcon(result[field]);
+    result[field] = getResultIcon(result[field], field);
   });
 
   return result;
@@ -79,6 +83,6 @@ function transformResult (result) {
 module.exports = function (req, res) {
   res.render('localstorage', {
     results: results.map(transformResult),
-    headerIndexes: [12, 24]
+    headerIndexes: [16, 28]
   });
 };

@@ -54,6 +54,7 @@
             <li><b><i class="fontelico-ie"></i></b> IE</li>
             <li><b><i class="fontelico-opera"></i></b> Opera</li>
             <li><b><i class="fa fa-apple"></i></b> OS X</li>
+            <li><b><i class="fa fa-apple"></i><i class="fa fa-mobile"></i></b> iOS</li>
             <li><b><i class="fa fa-windows"></i></b> Windows</li>
           </ul>
         </div>
@@ -151,12 +152,12 @@
     <h2>Notes</h2>
     <ul>
       <li>Iteration order is not guaranteed, just like a normal JavaScript object.</li>
-      <li>For all forced error cases in Chrome (31 on OS X), Firefox (25 on OS X), and Opera (17 on OS X) when cookies are disabled, a <code>SecurityError</code> is thrown.</li>
-      <li>For all forced error cases in Safari (6.0.5 on OS X) when in private browsing mode, a <code>QUOTA_EXCEEDED_ERR</code> is thrown. <code>setItem()</code>, <code>clear()</code>, and <code>key()</code> throw this error, while <code>getItem()</code> always returns <code>null</code> and <code>length</code> is always 0.</li>
+      <li>For all forced error cases in Safari 6.0.5 on OS X when in private browsing mode, a <code>QUOTA_EXCEEDED_ERR</code> is thrown. <code>setItem()</code>, <code>clear()</code>, and <code>key()</code> throw this error, while <code>getItem()</code> always returns <code>null</code> and <code>length</code> is always 0.</li>
       <li>So far, Safari is the only browser that blocks access when in private browsing mode.</li>
       <li>Both Safari and IE allow access when cookies are disabled.</li>
       <li>IE has separate settings for disabling cookies and DOM storage.</li>
       <li>IE8 throws a <code>TypeError</code> when calling <code>toString()</code>, but is fine if you cast to a string via <code>+ ''</code>.</li>
+      <li>The capacity test crashes Safari 6.1 on OS X 10.8. The result is reported but the browser becomes inresponsive.</li>
     </ul>
 
     <hr>
