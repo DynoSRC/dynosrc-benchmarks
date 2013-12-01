@@ -78,6 +78,7 @@ function transformResult (result) {
 
 module.exports = function (req, res) {
   res.render('localstorage', {
-    results: results.map(transformResult)
+    results: results.map(transformResult),
+    headerIndexes: [12, 24]
   });
 };

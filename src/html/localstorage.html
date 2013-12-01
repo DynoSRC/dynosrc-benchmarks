@@ -87,29 +87,7 @@
 
       <h3>Results</h3>
       <table class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th><i class="fa fa-globe"></i></th>
-            <th>Ver.</th>
-            <th><i class="fa fa-desktop"></i></th>
-            <th>Ver.</th>
-            <th><i class="fa fa-eye"></i></th>
-            <th><i class="fa fa-ban"></i></th>
-            <th>!!</th>
-            <th>tof</th>
-            <th>toS</th>
-            <th>in w</th>
-            <th>set</th>
-            <th>get</th>
-            <th>rem</th>
-            <th>clr</th>
-            <th>key</th>
-            <th>len</th>
-            <th>[]</th>
-            <th>{}</th>
-            <th>Capacity</th>
-          </tr>
-        </thead>
+        {% include './localstorage-header.html' %}
 
         <tbody>
           {% set browser = null %}
@@ -120,6 +98,13 @@
             {% set browser_version_changed = result.browser_version != browser_version and browser_version != null %}
             {% if browser_changed or browser_version_changed %}
               </tbody>
+            {% endif %}
+
+            {% if headerIndexes.indexOf(loop.index0) > -1 %}
+              {% include './localstorage-header.html' %}
+            {% endif %}
+
+            {% if browser_changed or browser_version_changed %}
               <tbody>
             {% endif %}
             {% set browser = result.browser %}
