@@ -1,5 +1,10 @@
-var results = require('../localstorage.json'),
+var chrome = require('../data/chrome.json'),
+    firefox = require('../data/firefox.json'),
+    safari = require('../data/safari.json'),
+    ie = require('../data/ie.json'),
+    opera = require('../data/opera.json'),
 
+    results = [].concat(chrome, firefox, safari, ie, opera),
     resultFields = [
       'private',
       'storage_disabled',
@@ -83,6 +88,6 @@ function transformResult (result) {
 module.exports = function (req, res) {
   res.render('localstorage', {
     results: results.map(transformResult),
-    headerIndexes: [16, 28]
+    headerIndexes: [8, 20, 32]
   });
 };
