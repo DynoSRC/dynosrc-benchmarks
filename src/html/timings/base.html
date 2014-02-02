@@ -1,0 +1,116 @@
+{% extends '../base.html' %}
+
+{% block firstbyte %}
+  <script>
+    // IE<9 polyfill.
+    Date.now = Date.now || function () { return +(new Date()); };
+     // firstbyte fallback.
+    window.__FIRSTBYTE = Date.now();
+  </script>
+{% endblock %}
+
+{% block css %}
+  <!-- TODO: Do not load any external resources. -->
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oswald:400,700?cacheId={{ cacheId }}">
+  <link rel="stylesheet" href="/css/bootstrap.min.css?cacheId={{ cacheId }}">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.min.css?cacheId={{ cacheId }}">
+  <link rel="stylesheet" href="/css/junk.css?cacheId={{ cacheId }}">
+  <link rel="stylesheet" href="/css/site.css?cacheId={{ cacheId }}">
+{% endblock %}
+
+{% block content %}
+  <!-- TODO: Do not load any external resources. -->
+  <div class="container">
+    {% block page_header %}{% endblock %}
+
+    <div class="results">
+      <hr>
+      <h2>Navigation Timing Events</h2>
+      <p>Calculated from first byte (responseStart).</p>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>Time <small class="muted">(ms)</small></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <hr>
+    <h2>Request Details</h2>
+    <p>Breakdown by asset type.</p>
+
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Request Type</th>
+          <th># of Requests</th>
+          <th>Total Size <small class="muted">(compressed)</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>HTML</td>
+          <td>6 <small class="muted">(5 iframes)</small></td>
+          <td>41.8 KB</td>
+        </tr>
+        <tr>
+          <td>CSS</td>
+          <td>6</td>
+          <td>40.9 KB</td>
+        </tr>
+        <tr>
+          <td>JAVASCRIPT</td>
+          <td>18</td>
+          <td>212 KB</td>
+        </tr>
+        <tr>
+          <td>IMAGES</td>
+          <td>55</td>
+          <td>979 KB</td>
+        </tr>
+        <tr>
+          <td>FLASH</td>
+          <td>1 <small class="muted">(if supported)</small></td>
+          <td>25.5 KB <small class="muted">(if supported)</small></td>
+        </tr>
+        <tr>
+          <td>FONTS</td>
+          <td>2</td>
+          <td>31.3 KB <small class="muted">(WOFF)</small></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <th>Totals</th>
+          <th>~88</th>
+          <th>~1.33 MB</th>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+    <h2>HTML Graveyard</h2>
+    <p>To generate requests and puff up HTML size.</p>
+
+    <div>
+      <iframe src="/iframe/0?cacheId={{ cacheId }}"></iframe>
+      <iframe src="/iframe/1?cacheId={{ cacheId }}"></iframe>
+      <iframe src="/iframe/2?cacheId={{ cacheId }}"></iframe>
+      <iframe src="/iframe/3?cacheId={{ cacheId }}"></iframe>
+      <iframe src="/iframe/4?cacheId={{ cacheId }}"></iframe>
+    </div>
+
+    <div>
+      <object type="application/x-shockwave-flash" data="//www.adobe.com/jp/events/cs3_web_edition_tour/swfs/perform.swf?cacheId={{ cacheId }}" width="320" height="180">
+        <param name="movie" value="//www.adobe.com/jp/events/cs3_web_edition_tour/swfs/perform.swf?cacheId={{ cacheId }}">
+        <param name="quality" value="high">
+      </object>
+    </div>
+
+    {% include './images.html' %}
+    {% include './text.html' %}
+  </div>
+{% endblock %}

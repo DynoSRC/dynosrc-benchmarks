@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+{% block firstbyte %}{% endblock %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
@@ -24,12 +25,14 @@
   <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
   <link rel="stylesheet" href="/css/site.css">
 {% endblock %}
+
+{% block js_head %}{% endblock %}
 </head>
 
 <body>
 {% block content %}{% endblock %}
 
-{% block js %}{% endblock %}
+{% block js_body %}{% endblock %}
 </body>
 
 </html>

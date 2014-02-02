@@ -32,6 +32,8 @@ app.use(express.favicon(__dirname + '/src/img/favicon.png'));
 
 app.get('/', getController('index'));
 app.get('/localstorage', getController('localstorage'));
+app.get('/timings/:type(traditional|dynosrc)', getController('timings'));
+app.get('/iframe/:index([0-4])', getController('iframe'));
 
 // Run.
 
