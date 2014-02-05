@@ -18,24 +18,24 @@
   <link rel="stylesheet" href="/css/site.css?cacheId={{ cacheId }}">
 {% endblock %}
 
+{% block js_head %}
+  <script>window.__CACHEID = '{{ cacheId }}';</script>
+{% endblock %}
+
 {% block content %}
   <!-- TODO: Do not load any external resources. -->
   <div class="container">
     {% block page_header %}{% endblock %}
 
+    <p>
+      <a class="btn btn-small btn-primary" href="?">Fresh Test (Bust Cache)</a>
+      <a class="btn btn-small" href="?cacheId={{ cacheId }}">Cached Reload</a>
+    </p>
+
     <div class="results">
       <hr>
       <h2>Navigation Timing Events</h2>
       <p>Calculated from first byte (responseStart).</p>
-      <table class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>Event</th>
-            <th>Time <small class="muted">(ms)</small></th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
     </div>
 
     <hr>

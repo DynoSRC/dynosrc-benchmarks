@@ -2,7 +2,7 @@ module.exports = function (req, res) {
   var type = req.params.type,
       template = 'timings/' + type,
       timestamp = Date.now(),
-      cacheId = type + '-' + timestamp;
+      cacheId = req.query.cacheId || type + '-' + timestamp;
 
   res.render(template, {
     timestamp: timestamp,
