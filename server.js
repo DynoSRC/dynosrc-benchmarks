@@ -22,6 +22,7 @@ swig.setDefaults({
 
 // Static stuff.
 
+app.use(express.compress());
 app.use('/css', express.static(__dirname + '/src/css'));
 app.use('/js', express.static(__dirname + '/src/js'));
 app.use('/img', express.static(__dirname + '/src/img'));
